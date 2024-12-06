@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <title>DUNE</title>
+</head>
+<body>
+{%if messages%}
+    {% for message in messages %}
+    <div class="error open">
+        <button class="esc3" onclick="{delete_error()}"><img src="{% static 'image/cross.svg'%}"></button>
+        <p class="error_text">Ошибка</p>
+        <p class="error_text_addition">{{message}}</p>
+    </div>
+    {%endfor%}
+{%endif%}
+    <div>
+        <img src="{% static 'image/Ellipse 126.png'%}" alt="49" class="register_yellow_background">
+        <div class="container_fixer">
+
+        </div>
+    <img src="{% static 'image/coin.png'%}" alt="1" class="reg-coin1">
+    <img src="{% static 'image/coin.png'%}" alt="2" class="reg-coin2">
+    </div>
+
+<div class="modal_add3 open" id="how_are_you">
+    <div class="modal_box3">
+            <p class="addition_text">Как вы узнали<span class="yellow_span">о нас?</span></p>
+            <button class="button_submit" type="submit"onclick="{more_more_and_more()}">По приглашению</button>
+                  <button class="button_submit" type="submit" onclick="location.href='{% url 'projects'%}'" id="no_more">Сам узнал</button>
+    </div>
+</div>
+
+
+<div class="modal_add3" id="who_is_he">
+    <div class="modal_box4">
+        <div class="ffsra">
+            <p class="addition_text">Кто ваc<span class="yellow_span2">пригласил?</span></p>
+        </div>
+        <form method="post">
+                {%csrf_token%}
+            <div class="overflow_block_of_modal_box2 active" data-profession="design">
+                {%for um in usm%}
+                <div class="needed_display_flex2">
+                    <div class="display_flex_profile_prewiew">
+                        <div class="any_block">
+                            <p class="id">Менеджер</p>
+                            <p class="project_block_nickname">{{um.username}}</p>
+                            <p class="date">{{um.email}}</p>
+                        </div>
+                    </div>
+                    <input type="hidden" value="{{um.id}}" name="um">
+ъ                    <img src="{% static 'image/add.svg'%}" class="ffadd">
+                </div>
+                {%endfor%}
+                {%for uk in usk%}
+                <div class="needed_display_flex2">
+                    <div class="display_flex_profile_prewiew">
+                        <div class="any_block">
+                            <p class="id">Скаут</p>
+                            <p class="project_block_nickname">{{uk.us_cpec.username}}</p>
+                            <p class="date">{{uk.us_cpec.email}}</p>
+                        </div>
+                    </div>
+                    <input type="hidden" value="{{uk.us_cpec.id}}" name="um">
+                    <img src="{% static 'image/add.svg'%}" class="ffadd">
+                </div>
+                {%endfor%}
+        </div>
+            <button class="button_submit" type="submit" id="no_more2">Подтвердить</button>
+            </form>
+    </div>
+</div>
+
+
+<script src="{% static 'js/reg.js'%}"></script>
+<script src="{% static 'js/scripts.js'%}"></script>
+<script src="{% static 'js/posts.js'%}"></script>
+</body>
+</html>

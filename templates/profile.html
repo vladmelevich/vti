@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <title>DUNE</title>
+</head>
+<body>
+<div class="flex_block_projects">
+    <div class="left_block_projects">
+        <div class="projects_main_logo">
+            <img src="{% static 'image/dune_main.svg' %}" class="projects_text">
+        </div>
+<div class="button_block_projects">
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'blogers'%}'"><img src="{% static 'image/blogger.svg'%}"><p class="projects_classic_button_text">Блогеры</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'projects'%}'"><img src="{% static 'image/projects.svg'%}"><p class="projects_classic_button_text" >Проекты</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'post'%}'"><img src="{% static 'image/posts.svg'%}"><p class="projects_classic_button_text">Посты</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'result_blog'%}'"><img src="{% static 'image/results.svg'%}"><p class="projects_classic_button_text">Результаты</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'applic_b'%}'"><img src="{% static 'image/Applications.svg' %}"><p class="projects_classic_button_text">Заявки</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{%url 'profile'%}'"><img src="{% static 'image/yellow_profile_icon.svg' %}"><p class="projects_classic_button_text_yellow">Профиль</p></button>
+</div>
+
+    </div>
+
+    <div class="right_block_projects">
+        <p class="profile_text">Профиль</p>
+        <div class="data_block">
+            <p class="default_data_text">Имя: <span class="black_profile_text_status"> {{us_information.name}}</span></p>
+            <p class="default_data_text">Почта: <span class="default_data_text"> {{us_information.email}}</span></p>
+            <p class="default_data_text">Роль: <span class="yellow_profile_text_status">  {{siu.rol}}</span></p>
+            <p class="default_data_text">Верификация: <span class="black_profile_text_status">  Да</span></p>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

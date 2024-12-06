@@ -1,0 +1,1 @@
+gunicorn --workers 2 --bind 0.0.0.0:3200 --timeout 120 dune.wsgi:application

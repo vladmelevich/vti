@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <title>DUNE</title>
+</head>
+<body>
+{%if messages%}
+    {% for message in messages %}
+    <div class="error open">
+        <button class="esc3" onclick="{delete_error()}"><img src="{% static 'image/cross.svg'%}"></button>
+        <p class="error_text">Ошибка</p>
+        <p class="error_text_addition">{{message}}</p>
+    </div>
+    {%endfor%}
+{%endif%}
+<div class="flex_block_projects">
+    <div class="left_block_projects">
+        <div class="projects_main_logo">
+            <img src="{% static 'image/dune_main.svg' %}" class="projects_text">
+        </div>
+<div class="button_block_projects">
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'blogers_m'%}'"><img src="{% static 'image/blogger.svg'%}"><p class="projects_classic_button_text">Блогеры</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'projects_m'%}'"><img src="{% static 'image/yellow_projects.svg'%}"><p class="projects_classic_button_text_yellow">Проекты</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'post_m'%}'"><img src="{% static 'image/posts.svg'%}"><p class="projects_classic_button_text">Посты</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'result'%}'"><img src="{% static 'image/results.svg'%}"><p class="projects_classic_button_text">Результаты</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'applic_m'%}'"><img src="{% static 'image/Applications.svg' %}"><p class="projects_classic_button_text">Заявки</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{%url 'profile_manager'%}'"><img src="{% static 'image/profile_icon.svg' %}"><p class="projects_classic_button_text">Профиль</p></button>
+</div>
+
+
+    </div>
+
+    <div class="right_block_projects">
+        <div>
+            <div class="style_fix">
+        <div class="display_flex_profile_prewiew_info">
+            {%if proji.nums == 1 or proji.nums == 7%}
+                <img src="{% static 'image/1p.png'%}" class="project_logo">
+            {%elif proji.nums == 2 or proji.nums == 9%}
+                <img src="{% static 'image/2p.png'%}" class="project_logo">
+            {%elif proji.nums == 3 or proji.nums == 6%}
+                <img src="{% static 'image/3p.png'%}" class="project_logo">
+            {%elif proji.nums == 4 or proji.nums == 8%}
+                <img src="{% static 'image/4p.png'%}" class="project_logo">
+            {%elif proji.nums == 5 or proji.nums == 10%}
+                <img src="{% static 'image/5p.png'%}" class="project_logo">
+            {%endif%}
+            <div class="status_block">
+                <p class="id">id: {{proji.id}}</p>
+                <p class="project_block_nickname">{{proji.name}}</p>
+                <p class="date">{{proji.date_start}}</p>
+                <p class="date">{{proji.date_finish}}</p>
+            </div>
+        </div>
+        <p class="addition_text_info">Условия для <span class="yellow_span">блогера</span></p>
+        <p class="classic_info_text">Соцсети:
+            {% for da_soc in proji.social_category %}
+                <img src="{% static 'image/'|add:da_soc|add:'.svg'%}" class="social_network_logo">
+            {%endfor%}
+        </p>
+        <p class="classic_info_text">Статус: <span class="info_text">{{proji.stat}}</span></p>
+        <p class="classic_info_text">Тип оплаты: <span class="info_text">{{proji.pay_category}}</span></p>
+        <p class="classic_info_text">Оплата: <span class="info_text">{{proji.pay}}</span></p>
+        <p class="manager_info_text">Менеджеры <span class="yellow_span">проекта</span></p>
+        <p class="classic_info_text">Ссылка: <span class="info_text"><a href="{{proji.url_reklam}}" class="yellow_link">{{d_url}}</a></span></p>
+        <p class="managers_text"> {{proji.us_manager.username}} <span class="managers_text_info"> {{proji.us_manager.email}}</span></p>
+        <p class="managers_text"> <span class="managers_text_info"> {{proji.men_email}}</span></p>
+
+        <button class="yellow_button_info" id="add-application">Подать заявку</button>
+
+        <p class="looks_like_products">Похожие<span class="yellow_span"> проекты</span></p>
+        <div class="overflow_looks_like_projects_block_display_flex">
+            {%for proj in projal%}
+            <div class="prewiew_project_block">
+                <div class="display_flex_profile_prewiew">
+                    {%if proj.nums == 1 or proj.nums == 7%}
+                            <button class="profile_prewiew_button" onclick="location.href='{%url 'projectsm_info' proj.id%}'"><img src="{% static 'image/1p.png'%}" class="project_logo"></button>
+                    {%elif proj.nums == 2 or proj.nums == 9%}
+                            <button class="profile_prewiew_button" onclick="location.href='{%url 'projectsm_info' proj.id%}'"><img src="{% static 'image/2p.png'%}" class="project_logo"></button>
+                    {%elif proj.nums == 3 or proj.nums == 6%}
+                            <button class="profile_prewiew_button" onclick="location.href='{%url 'projectsm_info' proj.id%}'"><img src="{% static 'image/3p.png'%}" class="project_logo"></button>
+                    {%elif proj.nums == 4 or proj.nums == 8%}
+                            <button class="profile_prewiew_button" onclick="location.href='{%url 'projectsm_info' proj.id%}'"><img src="{% static 'image/4p.png'%}" class="project_logo"></button>
+                    {%elif proj.nums == 5 or proj.nums == 10%}
+                            <button class="profile_prewiew_button" onclick="location.href='{%url 'projectsm_info' proj.id%}'"><img src="{% static 'image/5p.png'%}" class="project_logo"></button>
+                    {%endif%}
+                    <div class="status_block">
+                        <p class="id">id: {{proj.id}}</p>
+                        <p class="project_block_nickname">{{proj.name}}</p>
+                        <p class="date">{{proj.date_start}}</p>
+                        <p class="date">{{proj.date_finish}}</p>
+                    </div>
+                </div>
+                <div class="display_flex_social_text">
+                    <p class="social_text">Статус</p>
+                    <p class="social_text">Тип Оплаты</p>
+                    <p class="social_text">Оплата</p>
+                </div>
+                <div class="display_flex_status">
+                    <p class="Yellow_projects_text">{{proj.stat}}</p>
+                    <p class="Yellow_projects_text">{{proj.pay_category}}</p>
+                    <p class="Yellow_projects_text">{{proj.pay}}</p>
+                </div>
+                <div class="display_flex_social_status">
+                    <p class="social_network">Соцсеть:</p>
+                    {% for da_soc in proj.social_category %}
+                        <img src="{% static 'image/'|add:da_soc|add:'.svg'%}" class="social_network_logo">
+                    {%endfor%}
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+<div class="modal_add2" id="add-modal-block_of_blogers">
+    <div class="big_window">
+        <div class="display_flex_higher_block_of_modal_box_big_window">
+                <p class="addition_text2">Подача заявки <span class="yellow_span">блогера</span></p>
+                <button id="close-addings" class="esc2"><img src="{% static 'image/cross.svg'%}"></button>
+        </div>
+
+            <div class="overflow_block_of_modal_box_bloggers">
+                <div class="grid_block_modal_box_bloggers">
+                    <form method="post">
+                    {% csrf_token %}
+                    <ul class="bloger_list">
+                        {% for b in bl_m %}
+                            <li class="bloger_list_element">
+                                <input type="radio" name="id_bl" value="{{ b.id }}" class="input_element_in_bloger_list">
+                                <div class="prewiew_project_block_in_list">
+                                    <div class="display_flex_profile_prewiew">
+                                        {%if b.number_photo == 1 or b.number_photo == 6 or b.number_photo == 11 or b.number_photo == 16 or b.number_photo == 21%}
+                                            <button class="profile_prewiew_button" ><img src="{% static 'image/1.png' %}" class="profile_logo_bloger"></button>
+                                        {%elif b.number_photo == 2 or b.number_photo == 7 or b.number_photo == 12 or b.number_photo == 17 or b.number_photo == 22%}
+                                            <button class="profile_prewiew_button" ><img src="{% static 'image/2.png' %}" class="profile_logo_bloger"></button>
+                                        {%elif b.number_photo == 3 or b.number_photo == 8 or b.number_photo == 13 or b.number_photo == 18 or b.number_photo == 23%}
+                                            <button class="profile_prewiew_button" ><img src="{% static 'image/3.png' %}" class="profile_logo_bloger"></button>
+                                        {%elif b.number_photo == 4 or b.number_photo == 9 or b.number_photo == 14 or b.number_photo == 19 or b.number_photo == 24%}
+                                            <button class="profile_prewiew_button" ><img src="{% static 'image/4.png' %}" class="profile_logo_bloger"></button>
+                                        {%elif b.number_photo == 5 or b.number_photo == 10 or b.number_photo == 15 or b.number_photo == 20 or b.number_photo == 25%}
+                                            <button class="profile_prewiew_button" ><img src="{% static 'image/5.png' %}" class="profile_logo_bloger"></button>
+                                        {%endif%}
+                                        <div class="status_block">
+                                            <p class="id">id: {{ b.id }}</p>
+                                            <p class="project_block_nickname">{{ b.name_first }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="display_flex_social_text_bloggers">
+                                        <p class="social_text_bloggers">Подписчики</p>
+                                    </div>
+                                    <div class="display_flex_status_bloggers">
+                                        <p class="Yellow_projects_text">{{ b.subs }}</p>
+                                    </div>
+                                    <p class="bloggers_theme">Тематика: <span class="type_of_theme">Лайфстайл</span></p>
+                                </div>
+                            </li>
+                {% endfor %}
+            </ul>
+            <button class="button_submit_blogers" type="submit" id="commit-adding">Подтвердить</button>
+        </form>
+    </div>
+
+
+                </div>
+             </div>
+    </div>
+
+<script src="{% static 'js/lw.js'%}"></script>
+</body>
+</html>

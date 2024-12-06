@@ -1,0 +1,342 @@
+.registration_header_text {
+    font-family: Roboto;
+    font-weight: 800;
+    font-size: 2.2rem; /* Изменено на относительное значение */
+    margin: 0 auto; /* Центрирование */
+    line-height: 1.2; /* Изменено на относительное значение */
+    text-align: center; /* Центрирование текста */
+}
+
+.registration_yellow_header_text {
+    font-family: Roboto;
+    font-weight: 800;
+    font-size: 2.2rem; /* Изменено на относительное значение */
+    color: #FFDB3C;
+    line-height: 1.2; /* Изменено на относительное значение */
+    text-align: center; /* Центрирование текста */
+}
+
+.registration_window {
+    display: block;
+    width: 80%; /* Ширина адаптивная */
+    max-width: 400px; /* Максимальная ширина */
+    min-height: 30px;
+    max-height: 40px;
+    margin: 8px auto; /* Центрирование */
+    border-radius: 10px; /* Упрощено */
+    border: none;
+    background-color: #FFF9F6;
+}
+
+
+.registration_quation_block {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.registration_password_recovery_button {
+    margin: 0 10px; /* Отступы по бокам */
+    background-color: white;
+    border: none;
+    height: 30px;
+    color: #C2C2C2;
+    font-family: Lato;
+    font-size: 1rem; /* Изменено на относительное значение */
+}
+
+.registration_checkbox_text {
+    color: #C2C2C2;
+    font-family: Lato;
+    font-size: 1rem; /* Изменено на относительное значение */
+}
+
+.registration_button {
+    border-radius: 10px;
+    height: 50px;
+    width: 80%; /* Ширина адаптивная */
+    max-width: 400px; /* Максимальная ширина */
+    border: none;
+    background-color: #FFDB3C;
+    color: white;
+    margin: 20px auto; /* Центрирование с отступом сверху и снизу */
+    display: block; /* Убедитесь, что элемент блочный */
+}
+
+.registration_button_profession {
+    display: block;
+    margin: 0px auto;
+    border-radius: 10px;
+    height: 50px;
+    width: 80%;
+    max-width: 400px;
+    border: none;
+    background-color: #FFDB3C;
+    color: white;
+    text-align: center;
+}
+
+.profession_block {
+    margin-top: 5px;
+}
+
+.prefession_change_button {
+    display: flex;
+    justify-content: center; /* Центрирование */
+    height: 40px;
+}
+
+.second_position {
+    margin-left: 10%; /* Относительный отступ */
+}
+
+.profession_change_text {
+    font-size: 1rem; /* Изменено на относительное значение */
+    color: #C2C2C2;
+    font-family: Roboto;
+    line-height: 1.2; /* Изменено на относительное значение */
+}
+
+.signing_quation_button_text {
+    font-family: Lato;
+    font-size: 1rem; /* Изменено на относительное значение */
+    color: #C2C2C2;
+}
+
+.signing_quation_button {
+    font-size: 1rem; /* Изменено на относительное значение */
+    color: #FFDB3C;
+    background-color: white;
+    font-family: Lato;
+    line-height: 1.2; /* Изменено на относительное значение */
+    border: none;
+}
+
+.signing_button_quation_flex {
+    display: flex;
+    gap: 5px;
+    justify-content: center; /* Центрирование */
+}
+
+.coin5 {
+    margin-top: 50px;
+    margin-left: 5%; /* Относительный отступ */
+}
+
+.registration_error {
+    border: none;
+    background-color: #f1a3a3;
+    border-radius: 6px;
+    margin: 10px auto; /* Центрирование */
+    height: 50px;
+    width: 80%; /* Ширина адаптивная */
+    max-width: 400px; /* Максимальная ширина */
+}
+
+.text_in_border_registration {
+    position: absolute;
+    margin-top: 10px;
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    color: #c91616;
+    margin-left: 15px;
+    line-height: 1.2; /* Изменено на относительное значение */
+}
+
+.register_yellow_background {
+    height: 30vh; /* Адаптивная высота */
+    width: 35%; /* Ширина адаптивная */
+    position: absolute;
+    z-index: -2;
+    margin-left: 80%;
+    margin-top: -15px;
+    transform: translateX(-50%); /* Центрирование */
+}
+
+.register_yellow_background2 {
+    position: absolute;
+    z-index: -2;
+    height: 30vh; /* Адаптивная высота */
+    width: 80%; /* Ширина адаптивная */
+    top: 100px; /* Относительный отступ */
+    left: 50%;
+    transform: translateX(-50%); /* Центрирование */
+}
+
+.register_yellow_background3 {
+    position: absolute;
+    z-index: -2;
+    height: 30vh; /* Адаптивная высота */
+    width: 80%; /* Ширина адаптивная */
+    margin-left: -60%;
+    transform: translateX(-50%); /* Центрирование */
+}
+
+.reg-coin1 {
+    margin-top: 4vh; /* Относительный отступ */
+    margin-left: 10%; /* Относительный отступ */
+    transform: rotate(250deg);
+}
+
+.reg-coin2 {
+    margin-left: 50%; /* Относительный отступ */
+    transform: rotate(355deg);
+}
+
+.reg-coin3 {
+    margin-left: 10%; /* Относительный отступ */
+    transform: rotate(-179.7deg);
+}
+
+.reg-coin4 {
+    margin-left: 50%; /* Относительный отступ */
+    transform: rotate(-308.62deg);
+}
+
+.sign-coin1 {
+    margin-top: 138px; /* Относительный отступ */
+    margin-left: 10%; /* Относительный отступ */
+    transform: rotate(250deg);
+}
+
+.sign-coin2 {
+    margin-left: 50%; /* Относительный отступ */
+    transform: rotate(355deg);
+}
+
+.sign-coin3 {
+    margin-left: 10%; /* Относительный отступ */
+    transform: rotate(-179.7deg);
+}
+
+.sign-coin4 {
+    margin-left: 50%; /* Относительный отступ */
+    transform: rotate(-308.62deg);
+}
+
+.container_fixer {
+    height: 100px;
+}
+
+.modal_add3 {
+    background-color: rgba(0, 0, 0, .1);
+    left: 0;
+    top: 0;
+    z-index: 9999999;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    visibility: hidden;
+    position: fixed;
+    opacity: 0;
+    transition: opacity .4s, visibility .4s;
+}
+
+.modal_add3.open {
+    visibility: visible;
+    opacity: 1;
+    }
+
+    .modal_box3 {
+        background-color: white;
+        width: 350px;
+        height: 300px;
+        padding: 45px;
+        z-index: 99999;
+        border-radius: 22.32px;
+    }
+
+    .needed_display_flex2 {
+        display: flex;
+        gap: 10px;
+        height: 80px;
+    }
+
+    .project_logo2 {
+        width: 70px;
+        height: 70px;
+        border-radius: 180px;
+    }
+
+    .profile_prewiew_button2 {
+        border: none;
+        background-color: white;
+    }
+
+    .any_block {
+        margin-left: 20px;
+    }
+
+
+    .profession {
+        width: 150px;
+        height: 40px;
+        background-color: white;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        font-family: Lato;
+    }
+
+    .profession.active {
+        height: 40px;
+        background-color: #FFDB3C;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        font-family: Lato;
+        color: white;
+    }
+
+    .modal_box4 {
+        background-color: white;
+        width: 330px;
+        height: 550px;
+        padding: 45px;
+        z-index: 99999;
+        border-radius: 22.32px;
+    }
+
+    .input_search3 {
+        margin-left: 8px;
+        width: 15vw;
+        margin-top: -20px;
+        height: 48px;
+        border-radius: 16px;
+        border: none;
+        outline: none;
+        outline-offset: none;
+        box-shadow: 0px 1px 8px 0px #00000014;
+    }
+
+    .overflow_block_of_modal_box2 {
+        display: none;
+        overflow-y: scroll;
+        width: 330px;
+        height: 390px;
+    }
+
+    .overflow_block_of_modal_box2.active {
+        display: block;
+        overflow-y: scroll;
+        width: 330px;
+        height: 390px;
+    }
+
+    .ffsra {
+        margin-top: -60px;
+    }
+
+    .yellow_span2 {
+        margin-left: 5px;
+        color: #FFDB3C;
+    }
+
+    .reg_container {
+        min-width: 416px;
+    }

@@ -1,0 +1,479 @@
+.default_data_text {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    color: #A29EB6;
+}
+
+
+.grid_block_applications {
+    display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(auto-fill, 1fr);
+grid-auto-flow: row;
+}
+
+.profile_text {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 1.5rem; /* Изменено на относительное значение */
+    margin-top: 5vh; /* Относительный отступ */
+}
+
+.default_data_text {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 1rem; /* Изменено на относительное значение */
+    color: #A29EB6;
+    margin-left: 1rem; /* Изменено на относительное значение */
+}
+
+.black_profile_text_status {
+    color: black;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    margin-left: 1rem; /* Изменено на относительное значение */
+}
+
+.yellow_profile_text_status {
+    color: #FFDB3C;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    margin-left: 1rem; /* Изменено на относительное значение */
+}
+
+.referal_main_text {
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 1.5rem; /* Изменено на относительное значение */
+}
+
+.referal_block {
+    margin-top: 5vh; /* Относительный отступ */
+}
+
+.referal_content_text {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    color: #A29EB6;
+}
+
+.referal_link_copy_button {
+    width: 70%; /* Адаптивная ширина */
+    max-width: 300px; /* Максимальная ширина */
+    height: 55.9px;
+    background-color: #FFDB3C;
+    color: #FFFFFF;
+    font-family: Lato;
+    font-weight: 600;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    border-radius: 11.23px;
+    border: none;
+    margin-top: 3vh; /* Относительный отступ */
+}
+
+.admin_panel_text {
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 1.5rem; /* Изменено на относительное значение */
+}
+
+.admin_panel_button {
+    margin-top: 3vh;
+    text-align: left;
+    width: 100%; /* Адаптивная ширина */
+    max-width: 700px; /* Максимальная ширина */
+    height: 137px;
+    border-radius: 34.33px;
+    border: none;
+    box-shadow: 0px 1.81px 14.46px 0px #00000014;
+    background-color: white;
+}
+
+.button_arrow {
+    margin-left: auto; /* Центрирование */
+    margin-top: 1rem; /* Относительный отступ */
+    position: absolute;
+}
+
+.admin_panel_info_text {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    color: #A29EB6;
+}
+
+.mark_tick_admin_panel {
+    transform: rotate(-90deg);
+}
+
+.admin_panel_change_type {
+    width: 70%; /* Адаптивная ширина */
+    max-width: 420px; /* Максимальная ширина */
+    height: 55.91px;
+    text-align: left;
+    border: none;
+    font-family: Roboto;
+    font-weight: 600;
+    font-size: 1.3rem; /* Изменено на относительное значение */
+    background-color: white;
+}
+
+.admin_panel_display_flex {
+    display: flex;
+}
+
+.commands_block {
+    margin-top: 10vh; /* Относительный отступ */
+}
+
+.display_flex_profile_blocks {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет элементам переноситься */
+    width: 100%; /* Адаптивная ширина */
+    max-width: 1400px; /* Максимальная ширина */
+    height: auto; /* Автоматическая высота */
+    margin-top: 3vh; /* Относительный отступ */
+    gap: 2rem; /* Отступ между блоками */
+}
+
+
+.left_profile_block {
+    margin-top: 5vh;
+    max-width: 1400px;
+    max-height: 680px;
+    overflow-y: scroll;
+    box-shadow: 0px 1.21px 9.72px 0px #00000014;
+}
+
+.left_profile_block2 {
+    margin-top: 5vh; /* Относительный отступ */
+    width: 400px; /* Максимальная ширина */
+    height: 600px; /* Автоматическая высота */
+}
+
+.post_block_display_grid {
+    display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: repeat(auto-fill, 1fr);
+grid-auto-flow: row;
+gap: 40px;
+}
+
+.pair_block {
+    width: 100%; /* Адаптивная ширина */
+    max-height: 1090px; /* Максимальная высота */
+}
+
+.profile_info_text {
+    font-family: Lato;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+    color: #FFD000;
+    margin-left: 1rem; /* Изменено на относительное значение */
+}
+
+.profile_info_display_flex {
+    display: flex;
+}
+
+.profile_img_type1 {
+    margin-left: 15px;
+}
+
+.profile_img_type2 {
+    margin-left: 70px;
+}
+
+.bloger_registration_status {
+    font-family: Lato;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+    color: #CBFF8B;
+    margin-left: 1rem; /* Изменено на относительное значение */
+}
+
+.bloger_costs {
+    font-family: Lato;
+    font-size: 1rem; /* Изменено на относительное значение */
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+    color: #A29EB6;
+    margin-left: 1rem; /* Изменено на относительное значение */
+}
+
+.change_cost_button {
+    width: 70%; /* Адаптивная ширина */
+    min-width: 100px;
+    max-width: 350px; /* Максимальная ширина */
+    height: 56px;
+    border-radius: 11.23px;
+    border: none;
+    background-color: #FFDB3C;
+    color: white;
+}
+
+.paying_status {
+    font-family: Lato;
+    font-size: 1rem; /* Изменено на относительное значение */
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+    color: #A29EB6;
+    margin-left: 1rem; /* Изменено на относительное значение */
+    margin-top: -10px; /* Относительный отступ */
+}
+
+.verification_status {
+    font-family: Lato;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+    color: #CBFF8B;
+    margin-left: 1rem; /* Изменено на относительное значение */
+    margin-top: -2px; /* Относительный отступ */
+}
+
+.style_fix2 {
+    margin-left: 1rem; /* Изменено на относительное значение */
+    margin-top: 3vh; /* Относительный отступ */
+}
+
+.profile_logo_bloger {
+    border: none;
+    background-color: none;
+    width: 96px;
+    height: 96px;
+}
+
+.style_fix3 {
+    margin-left: 1rem; /* Изменено на относительное значение */
+    margin-top: 1rem; /* Относительный отступ */
+}
+
+.social_text_bloggers2 {
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 1rem; /* Изменено на относительное значение */
+    line-height: 1.2; /* Относительная высота строки */
+    color: #A29EB6;
+}
+
+.display_flex_status_bloggers2 {
+    display: flex;
+    gap: 5rem; /* Отступ между элементами */
+    margin-top: -15px;
+    margin-left: 3rem; /* Изменено на относительное значение */
+}
+
+.Yellow_projects_text2 {
+    font-family: Lato;
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+    font-size: 1rem; /* Изменено на относительное значение */
+    color: #FFDB3C;
+    margin-left: 1rem; /* Изменено на относительное значение */
+}
+
+.Yellow_projects_text3 {
+    font-family: Lato;
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+    font-size: 1rem; /* Изменено на относительное значение */
+    color: #FFDB3C;
+    margin-left: -8px; /* По необходимости */
+}
+
+.left_profile_block_box_shadows {
+    box-shadow: 0px 1.21px 9.72px 0px #00000014;
+    border-radius: 23.08px;
+    height: 650px;
+}
+
+.left_profile_block_box_shadows2 {
+    box-shadow: 0px 1.21px 9.72px 0px #00000014;
+    border-radius: 23.08px;
+    height: 92.32px;
+    margin-top: 2vh; /* Относительный отступ */
+}
+
+.addition_text_bloger_profile {
+    font-family: Lato;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+}
+
+    .diplay_grid_statistics_block {
+        display: grid;
+        grid-template-rows: repeat(auto-fill, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-flow: row;
+        width: 200px;
+        gap: 2rem;
+        }
+
+        .right_profile_block {
+            margin-top: 5rem;
+        }
+
+.statistics_underblock {
+    width: 10rem;
+    height: 83.82px;
+    border-radius: 20.95px;
+    box-shadow: 0px 1.1px 8.82px 0px #00000014;
+    text-align: center;
+}
+
+.statistics_underblock2 {
+    width: 100%; /* Адаптивная ширина */
+    max-width: 210px; /* Максимальная ширина */
+    height: 83.82px;
+    border-radius: 20.95px;
+    box-shadow: 0px 1.1px 8.82px 0px #00000014;
+    margin-left: -240px; /* По необходимости */
+}
+
+.type_of_stat {
+    font-family: Lato;
+    font-size: 1rem; /* Изменено на относительное значение */
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+    color: #A29EB6;
+}
+
+.count_of_stat {
+    font-family: Lato;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    font-weight: 700;
+    line-height: 1.2; /* Относительная высота строки */
+    color: #FFD000;
+}
+
+.pass_generation_block {
+    border: #FFD000 2px solid;
+    height: 214px;
+    width: 80%; /* Адаптивная ширина */
+    max-width: 400px; /* Максимальная ширина */
+    margin-top: 10vh; /* Относительный отступ */
+    border-radius: 19px;
+}
+
+.pass_text {
+    font-weight: 600;
+    font-family: Roboto;
+    font-size: 1rem; /* Изменено на относительное значение */
+    margin-left: 1rem; /* Изменено на относительное значение */
+    margin-top: 2vh; /* Относительный отступ */
+}
+
+.pass_buttons {
+    border-radius: 16px;
+    border: none;
+    width: 80%; /* Адаптивная ширина */
+    max-width: 318px; /* Максимальная ширина */
+    height: 42px;
+    margin-top: 2vh; /* Относительный отступ */
+    margin-left: 1rem; /* Изменено на относительное значение */
+    background-color: #FFDB3C;
+    font-weight: 600;
+    font-family: Roboto;
+    font-size: 1.2rem; /* Изменено на относительное значение */
+    color: white;
+}
+
+.update {
+    font-weight: 600;
+    font-family: Roboto;
+    font-size: 1rem; /* Изменено на относительное значение */
+    margin-left: 1rem; /* Изменено на относительное значение */
+}
+
+.div_update {
+    position: absolute;
+    margin-left: 50%; /* Центрирование */
+    transform: translateX(-50%); /* Центрирование */
+    margin-top: -100px; /* Относительный отступ */
+    width: 310px;
+    height: 50px;
+    border: none;
+    border-radius: 16px;
+    background-color: #A29EB6;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.div_update.open {
+    visibility: visible;
+    opacity: 1;
+}
+
+.post_block {
+    margin-left: 5%; /* Относительный отступ */
+}
+
+
+    @media(max-width:1485px){
+    .grid_block_applications {
+        display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-auto-flow: row;
+    }
+}
+
+@media(max-width:1350px){
+
+    .post_block_display_grid {
+        display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-auto-flow: row;
+    }
+    }
+
+
+@media(max-width:1160px){
+    .grid_block_applications {
+        display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-auto-flow: row;
+    }
+    }
+
+    @media(max-width:780px){
+
+        .grid_block_applications {
+            margin-left: 20%;
+            display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(auto-fill, 1fr);
+        grid-auto-flow: row;
+        }
+    }
+
+@media(max-width:480px){
+
+    .grid_block_applications {
+        margin-left: 60px;
+        display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-auto-flow: row;
+    }
+
+    .display_flex_profile_blocks {
+        display: block;
+        width: 100%; /* Адаптивная ширина */
+        max-width: 1400px; /* Максимальная ширина */
+        height: auto; /* Автоматическая высота */
+        margin-top: 3vh; /* Относительный отступ */
+        gap: 2rem; /* Отступ между блоками */
+    }
+
+    .right_profile_block {
+        margin-top: 60px;
+        margin-left: 30px;
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>DUNE</title>
+</head>
+<body>
+<div class="flex_block_projects">
+    <div class="left_block_projects">
+        <div class="projects_main_logo">
+            <img src="{% static 'image/dune_main.svg' %}" class="projects_text">
+        </div>
+        <div class="button_block_projects">
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'blogers_m' %}'">
+                <img src="{% static 'image/blogger.svg' %}">
+                <p class="projects_classic_button_text">Блогеры</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'projects_m' %}'">
+                <img src="{% static 'image/projects.svg' %}">
+                <p class="projects_classic_button_text">Проекты</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'post_m' %}'">
+                <img src="{% static 'image/posts.svg' %}">
+                <p class="projects_classic_button_text">Посты</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'result' %}'">
+                <img src="{% static 'image/results.svg'%}">
+                <p class="projects_classic_button_text">Результаты</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'applic_m' %}'">
+                <img src="{% static 'image/Applications.svg' %}">
+                <p class="projects_classic_button_text">Заявки</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'profile_manager' %}'">
+                <img src="{% static 'image/yellow_profile_icon.svg' %}">
+                <p class="projects_classic_button_text">Профиль</p>
+            </button>
+        </div>
+    </div>
+
+    <div class="right_block_projects">
+        <p class="profile_text">Профиль</p>
+        <div class="data_block">
+            <p class="default_data_text">Имя: <span class="black_profile_text_status">{{ us_man_inf.name }}</span></p>
+            <p class="default_data_text">Почта: <span class="default_data_text">{{ us_man_inf.email }}</span></p>
+            <p class="default_data_text">Роль: <span class="yellow_profile_text_status">Менеджер</span></p>
+            <p class="default_data_text">Верефикация: <span class="black_profile_text_status">Нет</span></p>
+            <p class="default_data_text">Telegram: <span class="black_profile_text_status">SSS</span></p>
+        </div>
+        <div class="referal_block">
+            <button class="admin_panel_button" onclick="location.href='{% url 'admin' %}'">
+                <span class="admin_panel_text">Админ панель</span> <br>
+                <span class="admin_panel_info_text">Расширения для модератеров</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

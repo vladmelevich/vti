@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pole</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body class="modal_add4">
+{%if messages%}
+    {% for message in messages %}
+    <div class="error open">
+        <button class="esc3" onclick="{delete_error()}"><img src="{% static 'image/cross.svg'%}"></button>
+        <p class="error_text">Ошибка</p>
+        <p class="error_text_addition">{{message}}</p>
+    </div>
+    {%endfor%}
+{%endif%}
+    <button class="esc" onclick="location.href='{% url 'post_m'%}'"><p>назад</p><img src="{% static 'image/cross.svg' %}"></button>
+        <div>
+            <form method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                <p class="addition_text">Изменение<span class="yellow_span2">поста</span></p>
+                    <input type="file" class="no_vision2" name="screenshot_add_m" id="screenshot_add">
+    <label for="screenshot_add"><p class="good_label"> <span class="ssrw">Добавить скриншот</span></p></label>
+                      <input type="url" name="url_m" placeholder="Введите ссылку на пост" class="input_project_name">
+                        <input type="text" name="url_name_m" placeholder="Введите название ссылки" class="input_project_name">
+                    <div class="display_flex_date_input">
+                        <p class="date_text_modal_box_radius">Реальная:</p>
+                        <input type="date" class="input_date" name="date_finish_m">
+                    </div>
+                      <div>
+                      <p class="Status_in_modal_block_bloggers2">Формат</p>
+                      <div class="socials_input_theme">
+                        <label><input type="radio" class="checkbox_type" name="format_m" value="Видео"><span class="Span_label">Видео</span></label>
+                        <br>
+                        <label><input type="radio" class="checkbox_type" name="format_m" value="Лайв Видео"><span class="Span_label">Лайв Видео</span></label>
+                        <br>
+                        <label><input type="radio" class="checkbox_type" name="format_m" value="Лайв Аудио"><span class="Span_label">Лайв Аудио</span></label>
+                        <br>
+                        <label><input type="radio" class="checkbox_type" name="format_m" value="Аудиозапись"><span class="Span_label">Аудиозапись</span></label>
+                        <br>
+                        <label><input type="radio" class="checkbox_type" name="format_m" value="Банер"><span class="Span_label">Банер</span></label>
+                        <br>
+                         <label><input type="radio" class="checkbox_type" name="format_m" value="Текстовый"><span class="Span_label">Текстовый</span></label>
+                        <br>
+                        <label><input type="radio" class="checkbox_type" name="format_m" value="Текстовый графический"><span class="Span_label">Текстовый графический</span></label>
+                        <br>
+                        </div>
+                    </div>
+                      <button class="button_submit" type="submit">Подтвердить</button>
+                </form>
+        </div>
+
+<script src="{% static 'js/posts.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUNE</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+{%if messages%}
+    {% for message in messages %}
+    <div class="error open">
+        <button class="esc3" onclick="{delete_error()}"><img src="{% static 'image/cross.svg'%}"></button>
+        <p class="error_text">{{message}}</p>
+    </div>
+    {%endfor%}
+{%endif%}
+<div class="flex_block_projects">
+    <div class="left_block_projects">
+        <div class="projects_main_logo">
+            <img src="{% static 'image/dune_main.svg' %}" class="projects_text">
+        </div>
+        <div class="button_block_projects">
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'blogers'%}'"><img src="{% static 'image/blogger.svg' %}"><p class="projects_classic_button_text">Блогеры</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'projects'%}'"><img src="{% static 'image/projects.svg' %}"><p class="projects_classic_button_text">Проекты</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'post'%}'"><img src="{% static 'image/posts.svg'%}"><p class="projects_classic_button_text">Посты</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'result_blog'%}'"><img src="{% static 'image/yellow_results.svg' %}"><p class="projects_classic_button_text_yellow">Результаты</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'applic_b'%}'"><img src="{% static 'image/Applications.svg' %}"><p class="projects_classic_button_text">Заявки</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{%url 'profile'%}'"><img src="{% static 'image/profile_icon.svg' %}"><p class="projects_classic_button_text">Профиль</p></button>
+        </div>
+    </div>
+
+    <div class="right_block_projects">
+        <div class="display_flex_data_stats">
+            <button class="date_data active">30 дней</button>
+            <button class="date_data">30 дней</button>
+            <button class="date_data">30 дней</button>
+            <button class="date_data">30 дней</button>
+        </div>
+        <div class="display_flex_info_blocks">
+            <div class="info_block">
+                <p class="date_text">Дата с</p>
+                <label class="label_for_data"><input type="date" name="input_data" class="no_vision"><img src="{% static 'image/calendar.svg' %}" class="calendar"></label>
+                <p class="date_text">Для оффера</p>
+                <select class="option_list">
+                    <option value="def">Выберите элементы <img src="{% static 'image/Mark_tick.svg' %}"></option>
+                </select>
+            </div>
+            <div class="info_block">
+                <p class="date_text">Дата по</p>
+                <label class="label_for_data"><input type="date" name="input_data" class="no_vision"><img src="{% static 'image/calendar.svg' %}" class="calendar"></label>
+                <p class="date_text">Для оффера</p>
+                <select class="option_list">
+                    <option value="def">Выберите варианты <img src="{% static 'image/Mark_tick.svg' %}"></option>
+                </select>
+            </div>
+            <button class="submit_data">Применить</button>
+        </div>
+        <div class="stats_block_display_flex">
+            <div class="status_block2">
+                <div class="needed_display_flex">
+                    <p class="status_type">Выплата</p>
+                    <button class="date_option">30 дней</button>
+                </div>
+                <p class="status_config">{{sr}}<span class="wallet">RUB</span></p>
+            </div>
+            <div class="status_block2">
+                <div class="needed_display_flex">
+                    <p class="status_type">Выдачи</p>
+                </div>
+                <p class="status_config">{{pmb}}</p>
+            </div>
+            <div class="status_block2">
+                <div class="needed_display_flex">
+                    <p class="status_type">Заявки</p>
+                    <button class="date_option">30 дней</button>
+                </div>
+                <p class="status_config">0</p>
+            </div>
+        </div>
+        <div class="offers_block">
+            <div class="needed_display_flex">
+                <p class="offer_type">Статистика по <span class="yellow_span">офферам</span></p>
+                <button class="date_option_offer">30 дней</button>
+            </div>
+            <table class="table_ss">
+                <tr>
+                    <td class="table_el_ff"><span class="ff_table_text">ID заявки</span></td>
+                    <td class="table_el_ff"><span class="ff_table_text">Дата и время создания</span></td>
+                    <td class="table_el_ff"><span class="ff_table_text"> ID оффера</span></td>
+                    <td class="table_el_ff"><span class="ff_table_text">Название оффера</span></td>
+                    <td class="table_el_ff"><span class="ff_table_text">Статус</span></td>
+                    <td class="table_el_ff"><span class="ff_table_text">Сумма вознаграждения</span></td>
+                </tr>
+                {%for i in result%}
+                <tr>
+                    <td class="table_el">{{i.id_res}}</td>
+                    <td class="table_el">{{i.date_off}}</td>
+                    <td class="table_el">{{i.id_off}}</td>
+                    <td class="table_el">{{i.name_off}}</td>
+                    <td class="table_el">{{i.status_off}}</td>
+                    <td class="table_el">{{i.summ_off}}</td>
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

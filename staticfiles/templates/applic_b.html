@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>DUNE</title>
+</head>
+<body>
+<div class="flex_block_projects">
+    <div class="left_block_projects">
+        <div class="projects_main_logo">
+            <img src="{% static 'image/dune_main.svg' %}" class="projects_text">
+        </div>
+        <div class="button_block_projects">
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'blogers_m'%}'"><img src="{% static 'image/blogger.svg'%}"><p class="projects_classic_button_text">Блогеры</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'projects_m'%}'"><img src="{% static 'image/projects.svg'%}"><p class="projects_classic_button_text_yellow">Проекты</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'post_m'%}'"><img src="{% static 'image/posts.svg'%}"><p class="projects_classic_button_text">Посты</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'result'%}'"><img src="{% static 'image/results.svg'%}"><p class="projects_classic_button_text">Результаты</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'applic_m'%}'"><img src="{% static 'image/Yellow_Application.svg' %}"><p class="projects_classic_button_text_yellow">Заявки</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{%url 'profile_manager'%}'"><img src="{% static 'image/profile_icon.svg' %}"><p class="projects_classic_button_text">Профиль</p></button>
+
+        </div>
+
+    </div>
+
+    <div class="right_block_projects">
+        <div class="overflow_block_applications">
+            <div class="grid_block_bloggers">
+                {% for aplb in aplic_m %}
+                <div class="prewiew_application_block">
+                    <p class="Applications_projects_text">Проект</p>
+                    <div class="display_flex_profile_prewiew">
+                        {% if aplb.pr.nums == 1 or aplb.pr.nums == 7 %}
+                            <img src="{% static 'image/1p.png' %}" class="project_logo">
+                        {% elif aplb.pr.nums == 2 or aplb.pr.nums == 9 %}
+                            <img src="{% static 'image/2p.png' %}" class="project_logo">
+                        {% elif aplb.pr.nums == 3 or aplb.pr.nums == 6 %}
+                            <img src="{% static 'image/3p.png' %}" class="project_logo">
+                        {% elif aplb.pr.nums == 4 or aplb.pr.nums == 8 %}
+                            <img src="{% static 'image/4p.png' %}" class="project_logo">
+                        {% elif aplb.pr.nums == 5 or aplb.pr.nums == 10 %}
+                            <img src="{% static 'image/5p.png' %}" class="project_logo">
+                        {% endif %}
+                        <div class="status_block">
+                            <p class="id">id: {{ aplb.id }}</p>
+                            <p class="project_block_nickname">{{ aplb.pr.name }}</p>
+                            <p class="date">{{ aplb.pr.date_start }}</p>
+                            <p class="date">{{ aplb.pr.date_finish }}</p>
+                        </div>
+                    </div>
+
+                    {% for blog in aplb.blog.all %}
+                    <div class="blog_block">
+                        <p class="blogers_in_application_text">О блогере</p>
+                        <div class="display_flex_profile_prewiew">
+                            {%if blog.number_photo == 1 or blog.number_photo == 6 or blog.number_photo == 11 or blog.number_photo == 16 or blog.number_photo == 21%}
+                                <button class="profile_prewiew_button" ><img src="{% static 'image/1.png' %}" class="profile_logo_bloger"></button>
+                            {%elif blog.number_photo == 2 or blog.number_photo == 7 or blog.number_photo == 12 or blog.number_photo == 17 or blog.number_photo == 22%}
+                                <button class="profile_prewiew_button" ><img src="{% static 'image/2.png' %}" class="profile_logo_bloger"></button>
+                            {%elif blog.number_photo == 3 or blog.number_photo == 8 or blog.number_photo == 13 or blog.number_photo == 18 or blog.number_photo == 23%}
+                                <button class="profile_prewiew_button" ><img src="{% static 'image/3.png' %}" class="profile_logo_bloger"></button>
+                            {%elif blog.number_photo == 4 or blog.number_photo == 9 or blog.number_photo == 14 or blog.number_photo == 19 or blog.number_photo == 24%}
+                                <button class="profile_prewiew_button" ><img src="{% static 'image/4.png' %}" class="profile_logo_bloger"></button>
+                            {%elif blog.number_photo == 5 or blog.number_photo == 10 or blog.number_photo == 15 or blog.number_photo == 20 or blog.number_photo == 25%}
+                                <button class="profile_prewiew_button" ><img src="{% static 'image/5.png' %}" class="profile_logo_bloger"></button>
+                            {%endif%}
+                            <div class="status_block">
+                                <p class="id">id: {{ blog.id }}</p>
+                                <p class="project_block_nickname">{{ blog.name_first }}</p>
+                            </div>
+                        </div>
+
+                        <div class="socials_block">
+                            <p class="classic_info_text1">Соцсети:
+                                {% if blog.social_net == 'Instagram' %}
+                                    <img src="{% static 'image/social_logo.svg' %}" class="social_network_logo">
+                                {% elif blog.social_net == 'Telegram' %}
+                                    <img src="{% static 'image/telegram.svg' %}" class="social_network_logo">
+                                {% elif blog.social_net == 'VK' %}
+                                    <img src="{% static 'image/vk.svg' %}" class="social_network_logo">
+                                {% elif blog.social_net == 'Youtube' %}
+                                    <img src="{% static 'image/youtube.svg' %}" class="social_network_logo">
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="status_button_block">
+                        {% if aplb.applicat == 'Принята' %}
+                            <button class="button_status">Принята заявка</button>
+                        {% elif aplb.applicat == 'Отклонено' %}
+                            <button class="button_cancel_application">Отклонено</button>
+                        {% elif aplb.applicat == 'Отправлено' %}
+                            <button class="button_cancel_application">Отправлено</button>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

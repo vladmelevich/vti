@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>DUNE</title>
+</head>
+<body>
+{%if messages%}
+    {% for message in messages %}
+    <div class="error open">
+        <button class="esc3" onclick="{delete_error()}"><img src="{% static 'image/cross.svg'%}"></button>
+        <p class="error_text">Ошибка</p>
+        <p class="error_text_addition">{{message}}</p>
+    </div>
+    {%endfor%}
+{%endif%}
+<div class="flex_block_projects">
+    <div class="left_block_projects">
+        <div class="projects_main_logo">
+            <img src="{% static 'image/dune_main.svg' %}" class="projects_text">
+        </div>
+        <div class="button_block_projects">
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'blogers_m' %}'">
+                <img src="{% static 'image/blogger.svg' %}">
+                <p class="projects_classic_button_text">Блогеры</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'projects_m' %}'">
+                <img src="{% static 'image/projects.svg' %}">
+                <p class="projects_classic_button_text">Проекты</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'post_m' %}'">
+                <img src="{% static 'image/posts.svg' %}">
+                <p class="projects_classic_button_text">Посты</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'result' %}'">
+                <img src="{% static 'image/results.svg' %}">
+                <p class="projects_classic_button_text">Результаты</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'applic_m' %}'">
+                <img src="{% static 'image/Applications.svg' %}">
+                <p class="projects_classic_button_text">Заявки</p>
+            </button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'profile_manager' %}'">
+                <img src="{% static 'image/yellow_profile_icon.svg' %}">
+                <p class="projects_classic_button_text">Профиль</p>
+            </button>
+        </div>
+    </div>
+
+    <div class="right_block_projects">
+        <div class="commands_block">
+            <div class="admin_panel_display_flex">
+                <button class="admin_panel_change_type" onclick="location.href='{% url 'applic' %}'">Заявки</button>
+                <a href="{% url 'applic' %}"><img src="{% static 'image/gap.svg' %}" class="mark_tick_admin_panel"></a>
+            </div>
+            <div class="admin_panel_display_flex">
+                <button class="admin_panel_change_type" onclick="location.href='{% url 'random' %}'">Генерация пароля</button>
+                <a href="{% url 'random' %}"><img src="{% static 'image/gap.svg' %}" class="mark_tick_admin_panel"></a>
+            </div>
+            <div class="admin_panel_display_flex">
+                <button class="admin_panel_change_type">База данных/раздача прав доступа</button>
+                <a href="{% url 'admin:index' %}" class="btn btn-primary"><img src="{% static 'image/gap.svg' %}" class="mark_tick_admin_panel"></a>
+            </div>
+            <button class="submit_data2" id="open-add-paying">Добавить оплату блогера</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal_add" id="add-modal-block-paying">
+    <div class="modal_box2">
+        <button class="esc" id="close-add-paying"><img src="{% static 'image/cross.svg' %}"></button>
+        <form method="post">
+        <p class="addition_text">Выбрать <span class="yellow_span">блогера</span></p>
+        <div class="display_flex_blogger_paying_block">
+            {%for up in list%}
+            {%csrf_token%}
+            <input type="radio" name="id_blog_pay" value="{{ up.upm.id }}">
+            <div class="prewiew_project_block">
+                <div class="display_flex_profile_prewiew">
+                    <button class="profile_prewiew_button" >
+                        {%if up.upm.number_photo == 1 or up.upm.number_photo == 6 or up.upm.number_photo == 11 or up.upm.number_photo == 16 or up.upm.number_photo == 21%}
+                            <button class="profile_prewiew_button" ><img src="{% static 'image/1.png' %}" class="profile_logo_bloger"></button>
+                        {%elif up.upm.number_photo == 2 or up.upm.number_photo == 7 or up.upm.number_photo == 12 or up.upm.number_photo == 17 or up.upm.number_photo == 22%}
+                            <button class="profile_prewiew_button" ><img src="{% static 'image/2.png' %}" class="profile_logo_bloger"></button>
+                        {%elif up.upm.number_photo == 3 or up.upm.number_photo == 8 or up.upm.number_photo == 13 or up.upm.number_photo == 18 or up.upm.number_photo == 23%}
+                            <button class="profile_prewiew_button" ><img src="{% static 'image/3.png' %}" class="profile_logo_bloger"></button>
+                        {%elif up.upm.number_photo == 4 or up.upm.number_photo == 9 or up.upm.number_photo == 14 or up.upm.number_photo == 19 or up.upm.number_photo == 24%}
+                            <button class="profile_prewiew_button" ><img src="{% static 'image/4.png' %}" class="profile_logo_bloger"></button>
+                        {%elif up.upm.number_photo == 5 or up.upm.number_photo == 10 or up.upm.number_photo == 15 or up.upm.number_photo == 20 or up.upm.number_photo == 25%}
+                            <button class="profile_prewiew_button" ><img src="{% static 'image/5.png' %}" class="profile_logo_bloger"></button>
+                        {%endif%}
+                    </button>
+                    <div class="status_block">
+                        <p class="id">id: {{up.upm.id}}</p>
+                        <p class="project_block_nickname">{{up.upm.name_first}}</p>
+                    </div>
+                </div>
+                <div class="display_flex_social_text_bloggers">
+                    <p class="social_text_bloggers">Подписчики</p>
+                </div>
+                <div class="display_flex_status_bloggers">
+                    <p class="Yellow_projects_text">{{up.upm.subs}}</p>
+                </div>
+                <p class="bloggers_theme">Тематика: <span class="type_of_theme">{{up.upm.tem}}</span></p>
+                <div class="display_flex_social_status_blogers">
+                    <p class="social_network_blogers">Соцсеть:</p>
+                     {%if up.upm.social_net == 'Instagram'%}
+                        <img src="{% static 'image/social_logo.svg'%}" class="social_network_logo">
+                    {%elif up.upm.social_net == 'Telegram'%}
+                        <img src="{% static 'image/telegram.svg'%}" class="social_network_logo">
+                    {%elif up.upm.social_net == 'VK'%}
+                        <img src="{% static 'image/vk.svg'%}" class="social_network_logo">
+                    {%elif up.upm.social_net == 'Youtube'%}
+                        <img src="{% static 'image/youtube.svg'%}" class="social_network_logo">
+                    {%endif%}
+                </div>
+                <div class="display_flex_social_status_blogers">
+                    <p class="social_network_blogers">Выплата:{{up.summ}}</p>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+        <p class="addition_text">Добавление оплаты <span class="yellow_span">блогера</span></p>
+        <input type="number" name="pay_input_project" placeholder="Введите оплату блогера" class="input_bloger_paying">
+        <button class="button_submit" type="submit" id="commit-add-paying">Подтвердить</button>
+        </form>
+    </div>
+</div>
+<script src="{% static 'js/posts.js'%}"></script>
+<script src="{% static 'js/admin_panel.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <title>DUNE</title>
+</head>
+<body>
+{%if messages%}
+    {% for message in messages %}
+    <div class="error open">
+        <button class="esc3" onclick="{delete_error()}"><img src="{% static 'image/cross.svg'%}"></button>
+        <p class="error_text">Ошибка</p>
+        <p class="error_text_addition">{{message}}</p>
+    </div>
+    {%endfor%}
+{%endif%}
+
+    <div class="left_block_projects">
+        <div class="projects_main_logo">
+            <img src="{% static 'image/dune_main.svg' %}" class="projects_text">
+        </div>
+<div class="button_block_projects">
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'blogers_m'%}'"><img src="{% static 'image/blogger.svg'%}"><p class="projects_classic_button_text">Блогеры</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'projects_m'%}'"><img src="{% static 'image/yellow_projects.svg'%}"><p class="projects_classic_button_text_yellow">Проекты</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'post_m'%}'"><img src="{% static 'image/posts.svg'%}"><p class="projects_classic_button_text">Посты</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'result'%}'"><img src="{% static 'image/results.svg'%}"><p class="projects_classic_button_text">Результаты</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{% url 'applic_m'%}'"><img src="{% static 'image/Applications.svg' %}"><p class="projects_classic_button_text">Заявки</p></button>
+    <button class="button_on_projects_classic" onclick="location.href='{%url 'profile_manager'%}'"><img src="{% static 'image/profile_icon.svg' %}"><p class="projects_classic_button_text">Профиль</p></button>
+</div>
+
+    </div>
+    <div class="right_block_projects">
+        <div class="search_projects_block">
+            <form method="get">
+                <input type="text" placeholder="Поиск" class="input_search" name="filters_name">
+                <input type="submit">
+            </form>
+        </div>
+        <div class="filters_block_text">
+            <p class="filters_block_text_msg">Фильтрация</p>
+            <p class="filters_block_text_msg">Всего найдено:</p>
+        </div>
+        <div class="filters_block_buttons">
+            <form method="get">
+            <select name="filter_1" class="button_of_filters" onchange="this.form.submit()">
+                <option >Соцсеть</option>
+                <option value="vse0">Все</option>
+                <option value="instagram">Instagram</option>
+                <option value="vk">VK</option>
+                <option value="ok">OK</option>
+                <option value="telegram">Telegram</option>
+                <option value="liked">Likee</option>
+                <option value="tiktok">Tiktok</option>
+                <option value="youtube">Youtube</option>
+                <option value="twitch">Twitch</option>
+              </select>
+                </form>
+            <form method="get">
+              <select name="filter_2" class="button_of_filters" onchange="this.form.submit()">
+                <option>Тип оплаты</option>
+                  <option value="vse">Все</option>
+                <option value="CPA">CPA</option>
+                <option value="CPP">CPP</option>
+                <option value="CPV">CPV</option>
+                <option value="CPPF">CPPF</option>
+              </select>
+                </form>
+        </div>
+        <div class="overflow_block">
+            <div class="grid_block_bloggers">
+                {%for da in dan%}
+                <div class="prewiew_project_block">
+                    <div class="display_flex_profile_prewiew">
+                    {%if da.nums == 1 or da.nums == 7%}
+                        <img src="{% static 'image/1p.png'%}" class="project_logo">
+                    {%elif da.nums == 2 or da.nums == 9%}
+                        <img src="{% static 'image/2p.png'%}" class="project_logo">
+                    {%elif da.nums == 3 or da.nums == 6%}
+                        <img src="{% static 'image/3p.png'%}" class="project_logo">
+                    {%elif da.nums == 4 or da.nums == 8%}
+                        <img src="{% static 'image/4p.png'%}" class="project_logo">
+                    {%elif da.nums == 5 or da.nums == 10%}
+                        <img src="{% static 'image/5p.png'%}" class="project_logo">
+                    {%endif%}
+                        <div class="status_block">
+                            <p class="id">id:{{da.id}} </p>
+                            <p class="project_block_nickname">{{da.name}}</p>
+                            <p class="date">{{da.date_start}}</p>
+                            <p class="date">{{da.date_finish}}</p>
+                        </div>
+                    </div>
+                    <div class="display_flex_social_text">
+                        <p class="social_text">Статус</p>
+                        <p class="social_text">Тип Оплаты</p>
+                        <p class="social_text">Оплата</p>
+                    </div>
+                    <div class="display_flex_status">
+                        <p class="Yellow_projects_text">{{da.stat}}</p>
+                        <p class="Yellow_projects_text">{{da.pay_category}}</p>
+                        <p class="Yellow_projects_text">{{da.pay}}</p>
+                    </div>
+                    <div class="display_flex_social_status">
+                        <p class="social_network">Соцсеть:</p>
+                        {% for da_soc in da.social_category %}
+                            <img src="{% static 'image/'|add:da_soc|add:'.svg'%}" class="social_network_logo">
+                        {%endfor%}
+                    </div>
+                    <div class="display_flex_button_status">
+                        <button class="button_status" onclick="location.href='{%url 'projectsm_info' da.id%}'">Страница Проекта</button>
+                        <img src="{% static 'image/Mark_tick.svg'%}" class="tick_img">
+                </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+        <button class="add_svg_button" id="open-add"><img src="{% static 'image/big_plus.svg'%}"></button>
+    </div>
+</div>
+
+<div class="modal_add" id="add-modal-block">
+    <div class="modal_box">
+            <button class="esc" id="close-add"><img src="{% static 'image/cross.svg'%}"></button>
+            <p class="addition_text">Добавление нового <span class="yellow_span">проекта</span></p>
+        <form method="post" enctype="multipart/form-data">
+            {%csrf_token%}
+            <div class="overflow_block_of_modal_box">
+            <input type="text" name="name_project" placeholder="Введите имя проекта" class="input_project_name">
+                  <input type="email" name="email_men" placeholder="Почта 2-го менеджера" class="input_project_name">
+                    <input type="number" name="summ" placeholder="Введите сумму за проект" class="input_project_name">
+                <input type="url" name="url" placeholder="Введите ссылка проетка" class="input_project_name">
+                  <div class="display_flex_input_types">
+                    <div class="socials_input">
+                    <p class="type_modal_text">Выберите <span class="yellow_span">соцсеть</span></p>
+                    <label><input type="checkbox" class="checkbox_type" name="category" value="instagram"><span class="Span_label">Instagram</span></label>
+                    <br>
+                    <label><input type="checkbox" class="checkbox_type" name="category" value="vk"><span class="Span_label">VK</span></label>
+                    <br>
+                    <label><input type="checkbox" class="checkbox_type" name="category" value="OK"><span class="Span_label">OK</span></label>
+                    <br>
+                    <label><input type="checkbox" class="checkbox_type" name="category" value="telegram"><span class="Span_label">Telegram</span></label>
+                    <br>
+                    <label><input type="checkbox" class="checkbox_type" name="category" value="liked"><span class="Span_label">Likee</span></label>
+                    <br>
+                    <label><input type="checkbox" class="checkbox_type" name="category" value="Tiktok"><span class="Span_label">Tiktok</span></label>
+                    <br>
+                    <label><input type="checkbox" class="checkbox_type" name="category" value="youtube"><span class="Span_label">Youtube</span></label>
+                    <br>
+                    <label><input type="checkbox" class="checkbox_type" name="category" value="Twitch"><span class="Span_label">Twitch</span></label>
+                    </div>
+                    <div class="socials_input">
+                        <p class="type_modal_text">Выберите <span class="yellow_span">тип оплаты</span></p>
+                        <label><input type="radio" class="checkbox_type" name="pay" value="CPA"><span class="Span_label">CPA</span></label>
+                        <br>
+                        <label><input type="radio" class="checkbox_type" name="pay" value="CPP"><span class="Span_label">CPP</span></label>
+                        <br>
+                        <label><input type="radio" class="checkbox_type" name="pay" value="CPV"><span class="Span_label">CPV</span></label>
+                        <br>
+                        <label><input type="radio" class="checkbox_type" name="pay" value="CPPF"><span class="Span_label">CPPF</span></label>
+                    </div>
+                  </div>
+                <p class="Status_in_modal_block">Статус</p>
+                  <div class="active_not_active">
+                    <input type="radio" id="position1" value="Активный" name="status"><span class="Status_text">Активный</span>
+                    <input type="radio" class="Not_active" id="position2" value="Неактивный" name="status"><span class="Status_text">Неактивный</span>
+                    <label for="position1"></label>
+                    <label for="position2"></label>
+                  </div>
+            <div>
+                <p class="date_text_modal_box">Дата выполнения</p>
+                <div class="display_flex_date_input">
+                    <p class="date_text_modal_box_radius">С</p>
+                    <input type="date" class="input_date" name="start">
+                    <p class="date_text_modal_box_radius">По</p>
+                    <input type="date" class="input_date" name="finish">
+                </div>
+            </div>
+                  <button class="button_submit" type="submit" id="commit-add">Подтвердить</button>
+            </div>
+            </form>
+    </div>
+</div>
+
+
+<script src="{% static 'js/main.js'%}"></script>
+</body>
+</html>

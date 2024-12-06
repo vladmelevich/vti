@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>DUNE</title>
+</head>
+<body>
+{%if messages%}
+    {% for message in messages %}
+    <div class="error open">
+        <button class="esc3" onclick="{delete_error()}"><img src="{% static 'image/cross.svg'%}"></button>
+        <p class="error_text">Ошибка</p>
+        <p class="error_text_addition">{{message}}</p>
+    </div>
+    {%endfor%}
+{%endif%}
+    <div class="left_block_projects">
+        <div class="projects_main_logo">
+            <img src="{% static 'image/dune_main.svg' %}" class="projects_text">
+        </div>
+        <div class="button_block_projects">
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'blogers'%}'"><img src="{% static 'image/blogger.svg' %}"><p class="projects_classic_button_text">Блогеры</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'projects'%}'"><img src="{% static 'image/yellow_projects.svg' %}"><p class="projects_classic_button_text_yellow">Проекты</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'post'%}'"><img src="{% static 'image/posts.svg'%}"><p class="projects_classic_button_text">Посты</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'result_blog'%}'"><img src="{% static 'image/results.svg' %}"><p class="projects_classic_button_text">Результаты</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{% url 'applic_b'%}'"><img src="{% static 'image/Applications.svg' %}"><p class="projects_classic_button_text">Заявки</p></button>
+            <button class="button_on_projects_classic" onclick="location.href='{%url 'profile'%}'"><img src="{% static 'image/profile_icon.svg' %}"><p class="projects_classic_button_text">Профиль</p></button>
+        </div>
+
+    </div>
+    <div class="right_block_projects">
+        <div class="search_projects_block">
+            <form method="get">
+                <img src="{% static 'image/search.svg' %}">
+                <input type="text" placeholder="Поиск" class="input_search" name="filters_name">
+                <input type="submit">
+            </form>
+        </div>
+        <div class="filters_block_text">
+            <p class="filters_block_text_msg">Фильтрация</p>
+            <p class="filters_block_text_msg">Всего найдено:</p>
+        </div>
+        <div class="filters_block_buttons">
+            <form method="get">
+            <select name="filter_1" class="button_of_filters" onchange="this.form.submit()">
+                <option>Соцсеть</option>
+                <option value="vse0">Все</option>
+                <option value="instagram">Instagram</option>
+                <option value="vk">VK</option>
+                <option value="ok">OK</option>
+                <option value="telegram">Telegram</option>
+                <option value="liked">Likee</option>
+                <option value="tiktok">Tiktok</option>
+                <option value="youtube">Youtube</option>
+                <option value="twitch">Twitch</option>
+              </select>
+                </form>
+            <form method="get">
+              <select name="filter_2" class="button_of_filters" onchange="this.form.submit()">
+                <option>Тип оплаты</option>
+                  <option value="vse">Все</option>
+                <option value="CPA">CPA</option>
+                <option value="CPP">CPP</option>
+                <option value="CPV">CPV</option>
+                <option value="CPPF">CPPF</option>
+              </select>
+                </form>
+
+        </div>
+        <div class="overflow_block">
+            <div class="grid_block_bloggers">
+                {%for pb in projects_blog%}
+                <div class="prewiew_project_block">
+                    <div class="display_flex_profile_prewiew">
+                         {%if pb.nums == 1 or pb.nums == 7%}
+                            <img src="{% static 'image/1p.png'%}" class="project_logo">
+                        {%elif pb.nums == 2 or pb.nums == 9%}
+                            <img src="{% static 'image/2p.png'%}" class="project_logo">
+                        {%elif pb.nums == 3 or pb.nums == 6%}
+                            <img src="{% static 'image/3p.png'%}" class="project_logo">
+                        {%elif pb.nums == 4 or pb.nums == 8%}
+                            <img src="{% static 'image/4p.png'%}" class="project_logo">
+                        {%elif pb.nums == 5 or pb.nums == 10%}
+                            <img src="{% static 'image/5p.png'%}" class="project_logo">
+                        {%endif%}
+                        <div class="status_block">
+                            <p class="id">id: {{pb.id}}</p>
+                            <p class="project_block_nickname">{{pb.name}}</p>
+                            <p class="date">{{pb.date_start}}</p>
+                            <p class="date">{{pb.date_finish}}</p>
+                        </div>
+                    </div>
+                    <div class="display_flex_social_text">
+                        <p class="social_text">Статус</p>
+                        <p class="social_text">Тип Оплаты</p>
+                        <p class="social_text">Оплата</p>
+                    </div>
+                    <div class="display_flex_status">
+                        <p class="Yellow_projects_text">{{pb.stat}}</p>
+                        <p class="Yellow_projects_text">{{pb.pay_category}}</p>
+                        <p class="Yellow_projects_text">{{pb.pay}}</p>
+                    </div>
+                    <div class="display_flex_social_status">
+                        <p class="social_network">Соцсеть:</p>
+                        {% for da_soc in pb.social_category %}
+                            <img src="{% static 'image/'|add:da_soc|add:'.svg'%}" class="social_network_logo">
+                        {%endfor%}
+                    </div>
+                    <div class="display_flex_button_status">
+                        <button class="button_status" onclick="location.href='{%url 'projects_info' pb.id%}'">Страница Проекта</button>
+                        <img src="{% static 'image/Mark_tick.svg'%}" class="tick_img">
+                </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/posts.js'%}"></script>
+</body>
+</html>
