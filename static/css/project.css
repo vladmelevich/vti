@@ -1863,11 +1863,10 @@ margin-left: 20px;
                 outline-offset: 1px;
                 border: 2px, #FFDB3C, solid;
             }
-
             .ffadd {
                 width: 24px;
                 height: 24px;
-                margin-left: 90px;
+                right: 0;
                 margin-top: 25px;
             }
 
