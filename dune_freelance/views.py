@@ -239,7 +239,7 @@ def result(request):
                         pst=post_ex,
                         id_res=row['ID заявки'],
                         id_off=row['ID Оффера'],
-                        name_off=row['Название блогера'],
+                        name_off=row['Название Оффера'],
                         status_off=row['Status'],
                         date_off=date_value,
                         summ_off=row['Сумма вознаграждения']

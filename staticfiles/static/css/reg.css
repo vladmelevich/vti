@@ -323,7 +323,6 @@
 
     .overflow_block_of_modal_box2.active {
         display: block;
-        overflow-y: scroll;
         width: 330px;
         height: 390px;
     }

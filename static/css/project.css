@@ -1564,7 +1564,7 @@ margin-left: 20px;
 
             .date_data {
                 font-family: Lato;
-                font-size: 0.5vw;
+                font-size: 0.8vw;
                 font-weight: 600;
                 margin-left: 3vw;
                 border: none;
@@ -1575,7 +1575,7 @@ margin-left: 20px;
             }
 
             .date_data.active {
-                font-size: 0.5vw;
+                font-size: 0.8vw;
                 text-align: center;
                 margin-left: 3vw;
                 border: none;
@@ -1828,14 +1828,14 @@ margin-left: 20px;
             }
 
             .adding_offer_button {
-                position: absolute;
                 border-radius: 180px;
                 width: 20px;
                 height: 20px;
                 border: none;
                 background-color: white;
-                margin-left: 60vw;
-                margin-top: -2vw;
+                padding-left: 90%;
+                display: block;
+                position: static;
             }
 
 
@@ -1863,11 +1863,21 @@ margin-left: 20px;
                 outline-offset: 1px;
                 border: 2px, #FFDB3C, solid;
             }
+
             .ffadd {
                 width: 24px;
                 height: 24px;
                 right: 0;
                 margin-top: 25px;
+            }
+
+            .ffadd:active {
+                width: 24px;
+                height: 24px;
+                right: 0;
+                margin-top: 25px;
+                background-color: #424242;
+                transition: 0.4s;
             }
 
             .modal_add4 {
@@ -1900,6 +1910,43 @@ margin-left: 20px;
             }
 
             @media(max-width:780px){
+
+                .error_text {
+                    margin-left: 10px;
+                    margin-top: 10px;
+                    width: 150px;
+                    height: 100px;
+                    font-size: 25px;
+                    font-weight: 600;
+                    font-family: Lato;
+                }
+
+                .error_text_addition {
+                    width: 124.02px;
+                    height: 80px;
+                    margin-left: 10px;
+                    margin-top: -90px;
+                    font-family: Lato;
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 15.41px;
+                    color: #A29EB6;
+                }
+
+                .error {
+                    position: fixed;
+                    border: none;
+                    width: 196px;
+                    height: 148px;
+                    border-radius: 14.58px;
+                    right: 10%;
+                    visibility: 0;
+                    opacity: 0;
+                    z-index: 0;
+                    box-shadow: 0px 1px 8px 0px #00000014;
+                    background-color: white;
+            }
+
 
                 .stats_block_display_flex {
                     margin-top: 1vh;
@@ -1972,10 +2019,12 @@ margin-left: 20px;
 
                 .right_block_projects3 {
                     margin-left: auto;
-                    height: 85vh;
+                    height: 90vh;
                     width: 90%;
                     overflow: scroll;
                 }
+
+
                 .left_block_projects {
                     position: fixed;
                     bottom: 0px;
