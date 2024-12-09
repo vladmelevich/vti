@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-_qw%y+*@8&9i-sa9tski$(#d+4t2%8$608ls9c)o8h!k8qt1@(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['147.45.237.94']
+ALLOWED_HOSTS = []
 
 
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
@@ -84,8 +84,12 @@ WSGI_APPLICATION = 'dune.wsgi.application'
 
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dune',
+        'USER': 'root',
+        'PASSWORD': 'Vmelvladmlvh1211',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
